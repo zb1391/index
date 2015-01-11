@@ -1,0 +1,2 @@
+/home/zbrown/Documents/index/windows/tests/build/CMakeFiles/tester_exec.dir
+/home/zbrown/Documents/index/windows/tests/build/CMakeFiles/usercredentials_test_exec.dir

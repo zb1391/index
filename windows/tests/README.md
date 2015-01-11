@@ -9,25 +9,33 @@ http://check.sourceforge.net/doc/check_html/check_3.html
 
 We are writing tests to confirm our code does exactly what we want it to do.
 It also helps us stay focused on the tast at hand. We are going to try our best to follow the Red Green Refactor Paradigm.
-RED      - write a test before you start coding. The test should fail
-GREEN    - write code to make the specific test pass. 
-REFACTOR - improve upon what you wrote to simplify, make more readable, provide abstractions that can be used for future code.
+* RED      - write a test before you start coding. The test should fail
+* GREEN    - write code to make the specific test pass. 
+* REFACTOR - improve upon what you wrote to simplify, make more readable, provide abstractions that can be used for future code.
 
 By writing tests first we write code to accomplish definitive tasks, and it also helps us see if any changes to our code breaks things we already accomplished. 
 
 ## WRITING OUR FIRST TEST
 
-We will be using CMAKE to build and compile our testing suite. First create a directory to hold all of the tests
+We will be using CMAKE to build and compile our testing suite. Open up cygwin if your in Windows and go to your documents folder.
+
+```
+$ cd /cygdrive/c/Users/USERNAME/Documents
+```
+
+First create a directory to hold all of the tests
 ```
 $ mkdir my_tests
 ```
 
 ```
 $ cd my_tests
+$ touch my_test1.c #touch just creates a file
 ```
 
 Next, we will be writing our test file, my_test1.c:
 
+All code below goes into the my_test1.c
 ``` C
 #include <check.h>
 
@@ -40,6 +48,8 @@ START_TEST (test_one)
 
   n1 = 1;
   n2 = 2;
+
+  // this test checks to see if n1 == 0. (which it does not)
   ck_assert_int_eq(n1,0);
 }
 END_TEST
@@ -47,6 +57,7 @@ END_TEST
 
 Above is a very simple example of how tests are formatted. The code block is surrounded by START_TEST ... END_TEST. Inside we test that our variable n1 should equal 0. Because we set n1 =1, this test will fail by default.
 
+Next in the my_test1.c, create a suite that will be used to run all tests
 ``` C
 // create a suite to run the tests
 Suite *first_suite(void)
@@ -68,6 +79,7 @@ Suite *first_suite(void)
 
 Above is how we create a test suite. Each test must be add to the test suite in order for it to be run.
 
+Last, include the main method in my_test1.c
 ```
 int main(int arc, char **argv)
 {
@@ -88,8 +100,14 @@ int main(int arc, char **argv)
 
 Above is the main file where we instantiate our test suite and run it. Thats it!
 
-Next we will create the CMakeLists.txt file. This is a file that is interpreted by CMAKE to create a makefile for us. Paste the three lines below into your CMakeLists.txt file:
+Next we will create the CMakeLists.txt file. This is a file that is interpreted by CMAKE to create a makefile for us. Within the same directory, create the CMakeLists.txt. Paste the three lines below into your CMakeLists.txt file:
+
 ```
+$ touch CMakeLists.txt
+```
+
+```
+# CMakeLists.txt 
 project("Tester") # This is the name of our project. it is arbitrary
 
 add_executable(tester my_test1.c) # Here we are creating an executable called 'tester'. it is compiled by using our code included in my_test1.c

@@ -1,5 +1,9 @@
 project("Tester") # This is the name of the project, it is arbitrary
 
-add_executable(tester my_test1.c) # We are creating an executable called 'tester'. it is build by compiling the my_test1.c code
+# Test Example
+add_executable(tester_exec my_test1.c)
+target_link_libraries(tester_exec check m pthread rt) # We need to link some libraries
 
-target_link_libraries(tester check m pthread rt) # We need to link some libraries
+# UserCredentials Tests
+add_executable(usercredentials_test_exec ../lib/UserCredentials.c unit_tests/usercredentials_test.c)
+target_link_libraries(usercredentials_test_exec check m pthread rt)

@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/zbrown/Documents/index/windows/headers/UserCredentials.h
+stdio.h
+-
+string.h
+-
+stdlib.h
+-
+
+/home/zbrown/Documents/index/windows/lib/UserCredentials.c
+../headers/UserCredentials.h
+/home/zbrown/Documents/index/windows/headers/UserCredentials.h
+
+/home/zbrown/Documents/index/windows/tests/unit_tests/usercredentials_test.c
+../../headers/UserCredentials.h
+/home/zbrown/Documents/index/windows/headers/UserCredentials.h
+check.h
+-
+

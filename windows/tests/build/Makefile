@@ -42,10 +42,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/zbrown/Downloads/c_testing
+CMAKE_SOURCE_DIR = /home/zbrown/Documents/index/windows/tests
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/zbrown/Downloads/c_testing/build
+CMAKE_BINARY_DIR = /home/zbrown/Documents/index/windows/tests/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -72,9 +72,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/zbrown/Downloads/c_testing/build/CMakeFiles /home/zbrown/Downloads/c_testing/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zbrown/Documents/index/windows/tests/build/CMakeFiles /home/zbrown/Documents/index/windows/tests/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/zbrown/Downloads/c_testing/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zbrown/Documents/index/windows/tests/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -102,24 +102,61 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named tester
+# Target rules for targets named tester_exec
 
 # Build rule for target.
-tester: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 tester
-.PHONY : tester
+tester_exec: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 tester_exec
+.PHONY : tester_exec
 
 # fast build rule for target.
-tester/fast:
-	$(MAKE) -f CMakeFiles/tester.dir/build.make CMakeFiles/tester.dir/build
-.PHONY : tester/fast
+tester_exec/fast:
+	$(MAKE) -f CMakeFiles/tester_exec.dir/build.make CMakeFiles/tester_exec.dir/build
+.PHONY : tester_exec/fast
+
+#=============================================================================
+# Target rules for targets named usercredentials_test_exec
+
+# Build rule for target.
+usercredentials_test_exec: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 usercredentials_test_exec
+.PHONY : usercredentials_test_exec
+
+# fast build rule for target.
+usercredentials_test_exec/fast:
+	$(MAKE) -f CMakeFiles/usercredentials_test_exec.dir/build.make CMakeFiles/usercredentials_test_exec.dir/build
+.PHONY : usercredentials_test_exec/fast
+
+home/zbrown/Documents/index/windows/lib/UserCredentials.o: home/zbrown/Documents/index/windows/lib/UserCredentials.c.o
+.PHONY : home/zbrown/Documents/index/windows/lib/UserCredentials.o
+
+# target to build an object file
+home/zbrown/Documents/index/windows/lib/UserCredentials.c.o:
+	$(MAKE) -f CMakeFiles/usercredentials_test_exec.dir/build.make CMakeFiles/usercredentials_test_exec.dir/home/zbrown/Documents/index/windows/lib/UserCredentials.c.o
+.PHONY : home/zbrown/Documents/index/windows/lib/UserCredentials.c.o
+
+home/zbrown/Documents/index/windows/lib/UserCredentials.i: home/zbrown/Documents/index/windows/lib/UserCredentials.c.i
+.PHONY : home/zbrown/Documents/index/windows/lib/UserCredentials.i
+
+# target to preprocess a source file
+home/zbrown/Documents/index/windows/lib/UserCredentials.c.i:
+	$(MAKE) -f CMakeFiles/usercredentials_test_exec.dir/build.make CMakeFiles/usercredentials_test_exec.dir/home/zbrown/Documents/index/windows/lib/UserCredentials.c.i
+.PHONY : home/zbrown/Documents/index/windows/lib/UserCredentials.c.i
+
+home/zbrown/Documents/index/windows/lib/UserCredentials.s: home/zbrown/Documents/index/windows/lib/UserCredentials.c.s
+.PHONY : home/zbrown/Documents/index/windows/lib/UserCredentials.s
+
+# target to generate assembly for a file
+home/zbrown/Documents/index/windows/lib/UserCredentials.c.s:
+	$(MAKE) -f CMakeFiles/usercredentials_test_exec.dir/build.make CMakeFiles/usercredentials_test_exec.dir/home/zbrown/Documents/index/windows/lib/UserCredentials.c.s
+.PHONY : home/zbrown/Documents/index/windows/lib/UserCredentials.c.s
 
 my_test1.o: my_test1.c.o
 .PHONY : my_test1.o
 
 # target to build an object file
 my_test1.c.o:
-	$(MAKE) -f CMakeFiles/tester.dir/build.make CMakeFiles/tester.dir/my_test1.c.o
+	$(MAKE) -f CMakeFiles/tester_exec.dir/build.make CMakeFiles/tester_exec.dir/my_test1.c.o
 .PHONY : my_test1.c.o
 
 my_test1.i: my_test1.c.i
@@ -127,7 +164,7 @@ my_test1.i: my_test1.c.i
 
 # target to preprocess a source file
 my_test1.c.i:
-	$(MAKE) -f CMakeFiles/tester.dir/build.make CMakeFiles/tester.dir/my_test1.c.i
+	$(MAKE) -f CMakeFiles/tester_exec.dir/build.make CMakeFiles/tester_exec.dir/my_test1.c.i
 .PHONY : my_test1.c.i
 
 my_test1.s: my_test1.c.s
@@ -135,8 +172,32 @@ my_test1.s: my_test1.c.s
 
 # target to generate assembly for a file
 my_test1.c.s:
-	$(MAKE) -f CMakeFiles/tester.dir/build.make CMakeFiles/tester.dir/my_test1.c.s
+	$(MAKE) -f CMakeFiles/tester_exec.dir/build.make CMakeFiles/tester_exec.dir/my_test1.c.s
 .PHONY : my_test1.c.s
+
+unit_tests/usercredentials_test.o: unit_tests/usercredentials_test.c.o
+.PHONY : unit_tests/usercredentials_test.o
+
+# target to build an object file
+unit_tests/usercredentials_test.c.o:
+	$(MAKE) -f CMakeFiles/usercredentials_test_exec.dir/build.make CMakeFiles/usercredentials_test_exec.dir/unit_tests/usercredentials_test.c.o
+.PHONY : unit_tests/usercredentials_test.c.o
+
+unit_tests/usercredentials_test.i: unit_tests/usercredentials_test.c.i
+.PHONY : unit_tests/usercredentials_test.i
+
+# target to preprocess a source file
+unit_tests/usercredentials_test.c.i:
+	$(MAKE) -f CMakeFiles/usercredentials_test_exec.dir/build.make CMakeFiles/usercredentials_test_exec.dir/unit_tests/usercredentials_test.c.i
+.PHONY : unit_tests/usercredentials_test.c.i
+
+unit_tests/usercredentials_test.s: unit_tests/usercredentials_test.c.s
+.PHONY : unit_tests/usercredentials_test.s
+
+# target to generate assembly for a file
+unit_tests/usercredentials_test.c.s:
+	$(MAKE) -f CMakeFiles/usercredentials_test_exec.dir/build.make CMakeFiles/usercredentials_test_exec.dir/unit_tests/usercredentials_test.c.s
+.PHONY : unit_tests/usercredentials_test.c.s
 
 # Help Target
 help:
@@ -146,10 +207,17 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... tester"
+	@echo "... tester_exec"
+	@echo "... usercredentials_test_exec"
+	@echo "... home/zbrown/Documents/index/windows/lib/UserCredentials.o"
+	@echo "... home/zbrown/Documents/index/windows/lib/UserCredentials.i"
+	@echo "... home/zbrown/Documents/index/windows/lib/UserCredentials.s"
 	@echo "... my_test1.o"
 	@echo "... my_test1.i"
 	@echo "... my_test1.s"
+	@echo "... unit_tests/usercredentials_test.o"
+	@echo "... unit_tests/usercredentials_test.i"
+	@echo "... unit_tests/usercredentials_test.s"
 .PHONY : help
 
 

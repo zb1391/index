@@ -1,0 +1,1 @@
+/usr/bin/cc      CMakeFiles/tester_exec.dir/my_test1.c.o  -o tester_exec -rdynamic -lcheck -lm -lpthread -lrt 

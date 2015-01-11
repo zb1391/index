@@ -1,0 +1,1 @@
+/usr/bin/cc      CMakeFiles/usercredentials_test.dir/home/zbrown/Documents/index/windows/lib/UserCredentials.c.o CMakeFiles/usercredentials_test.dir/unit_tests/usercredentials_test.c.o  -o usercredentials_test -rdynamic -lcheck -lm -lpthread -lrt 

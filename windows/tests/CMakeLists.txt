@@ -7,3 +7,7 @@ target_link_libraries(tester_exec check m pthread rt) # We need to link some lib
 # UserCredentials Tests
 add_executable(usercredentials_test_exec ../lib/UserCredentials.c unit_tests/usercredentials_test.c)
 target_link_libraries(usercredentials_test_exec check m pthread rt)
+
+# DataPackager Tests
+add_executable(datapackager_test_exec ../lib/UserCredentials.c ../lib/DataPackager.c unit_tests/datapackager_test.c)
+target_link_libraries(datapackager_test_exec check m pthread rt yaml)

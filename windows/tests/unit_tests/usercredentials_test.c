@@ -15,7 +15,22 @@ START_TEST (create_user_credentials)
   ck_assert_str_eq(username, credentials->username);
   ck_assert_str_eq(password, credentials->password);
   ck_assert_str_eq(colorType, credentials->colorType);
+  
+  // free up memory
+  destroyUserCredentials(&credentials);
+}
+END_TEST
 
+START_TEST (delete_user_credentials)
+{
+  // create a user credentials struct
+  UserCredentials *credentials = createUserCredentials("test", "test", "red");
+
+  // delete it
+  destroyUserCredentials(&credentials);
+
+  // test that it is NULL
+  ck_assert(credentials == NULL);
 }
 END_TEST
 
@@ -31,6 +46,7 @@ Suite *first_suite(void)
   tc_core = tcase_create("Core");
 
   tcase_add_test(tc_core, create_user_credentials);
+  tcase_add_test(tc_core, delete_user_credentials);
   suite_add_tcase(s, tc_core);
 
   return s;

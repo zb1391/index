@@ -1,1 +1,0 @@
-/usr/bin/cc      CMakeFiles/datapackager_test.dir/home/zbrown/Documents/index/windows/lib/DataPackager.c.o CMakeFiles/datapackager_test.dir/unit_tests/datapackager_test.c.o  -o datapackager_test -rdynamic -lcheck -lm -lpthread -lrt 

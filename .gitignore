@@ -1,3 +1,4 @@
 .env
 *.o
 *test_exec
+windows/test/build

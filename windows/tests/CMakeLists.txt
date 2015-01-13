@@ -11,3 +11,7 @@ target_link_libraries(usercredentials_test_exec check m pthread rt)
 # DataPackager Tests
 add_executable(datapackager_test_exec ../lib/UserCredentials.c ../lib/DataPackager.c unit_tests/datapackager_test.c)
 target_link_libraries(datapackager_test_exec check m pthread rt yaml)
+
+# StateManager Tests
+add_executable(statemanager_test_exec ../lib/StateManager.c unit_tests/statemanager_test.c)
+target_link_libraries(statemanager_test_exec check m pthread rt)

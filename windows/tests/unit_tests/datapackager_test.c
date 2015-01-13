@@ -27,9 +27,6 @@ START_TEST (serialize_user_credentials)
   //serialze the data
   char *packaged = packageUserCredentials(credentials);
 
-  printf("%s\n",packaged);
-  printf("-----\n");
-  printf("%s\n",expected);
   ck_assert_str_eq(packaged,expected);
   
   // free up memory

@@ -18,3 +18,38 @@ void askQuestion(char **question)
   free(*(question));
   *(question) = NULL;
 }
+
+char *getResponse()
+{
+  int i,max;
+  char c, *response;
+    max = 20;
+  response = (char *)malloc(max);
+
+  i = 0;
+  while(1)
+  {
+    c = getchar();
+
+    /* stop reading if user enters c or enter */
+    if(isspace(c) || c == EOF)
+    {
+      response[i] = '\0';
+      break;
+    }
+
+    /* add char to response */
+    response[i] = c;
+
+    /* add more memory if buffer is full */
+    if(i == max-1)
+    {
+      max += max;
+      response = (char *)realloc(response,max);
+    }
+
+    i++;
+  }
+
+  return response;
+}

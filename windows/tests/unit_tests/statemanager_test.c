@@ -8,7 +8,7 @@ START_TEST (ask_get_username)
 { 
 
   // initialize state
-	stateType state = GetUsername;
+  stateType state = GetUsername;
 
   char *question = getQuestion(state);
 

@@ -22,4 +22,7 @@ char *getQuestion(stateType state);
 // ask the question to the user
 void askQuestion(char **question);
 
+// get the user input
+char *getResponse();
+
 #endif

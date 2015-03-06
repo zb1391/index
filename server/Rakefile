@@ -1,0 +1,10 @@
+ENV["ENVIRONMENT"] ||= 'development'
+
+require_relative 'environment'
+
+task :default => :migrate
+
+desc "Run Migrations"
+task :migrate do
+	ActiveRecord::Migrator.migrate('db/migrate', ENV["VERSION"] ? ENV["VERSION"].to_i : nil)
+end

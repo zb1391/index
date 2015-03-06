@@ -1,10 +1,12 @@
 require 'yaml'
 require 'active_record'
+require 'active_support/all'
 require 'pg'
 require 'logger'
 require 'colorize'
 require 'rspec'
 require 'dotenv'
+require 'pry'
 
 Dotenv.load
 ENV["ENVIRONMENT"] ||= "development"

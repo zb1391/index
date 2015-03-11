@@ -7,7 +7,7 @@ START_TEST (get_num_chars)
 {
   UserCredentials *credentials = createUserCredentials("user",
                                              "test","red");
-  int expected = 44;
+  int expected = 51;
   int results = numCharsRequired(credentials);
 
   ck_assert_int_eq(expected,results);
@@ -22,7 +22,7 @@ START_TEST (serialize_user_credentials)
   //create the credentials
   UserCredentials *credentials = createUserCredentials("user",
                                                 "test", "red");
-  char expected[100] = "username:user\npassword:test\ncolor_type:red\n";
+  char expected[100] = "{:username=>user,:password=>test,:color_type=>red}";
 
   //serialze the data
   char *packaged = packageUserCredentials(credentials);

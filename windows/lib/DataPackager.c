@@ -9,8 +9,17 @@ int numCharsRequired(UserCredentials *credentials)
   password = credentials->password;
   colorType = credentials->colorType;
   
-  //33 is the number of chars in the keys + \n's + null terminator
-  return 33 + strlen(username) + strlen(password) + strlen(colorType);
+  /*where did 40 come from:
+   * we are packaging as "{:username=>USERNAME,:password=>PASSWORD,:color_type=>COLOR}"
+   * {} -- 2
+   * 2 commas, 3 colons, 3 hashrockets (=>) -- 11
+   * username -- 8
+   * password -- 8
+   * color_type -- 10
+   * terminating char (\0) -- 1
+   * TOTAL = 40
+   */ 
+  return 40 + strlen(username) + strlen(password) + strlen(colorType);
 }
 
 
@@ -25,7 +34,7 @@ char *packageUserCredentials(UserCredentials *credentials)
   //create the string
   packaged = (char *)malloc(sizeof(char)*numChars);
   sprintf(packaged,
-  	      "username:%s\npassword:%s\ncolor_type:%s\n",
+  	      "{:username=>%s,:password=>%s,:color_type=>%s}",
   	      credentials->username,
   	      credentials->password,
   	      credentials->colorType);

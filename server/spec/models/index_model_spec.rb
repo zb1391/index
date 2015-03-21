@@ -13,5 +13,9 @@ describe "Index" do
 		it 'has an empty hash of signed in users' do
 			expect(@index.signed_in_users.empty?).to be true
 		end
+
+		it 'listens for clients on the specified port' do
+			expect(@index.client_server.is_listening).to be true
+		end
 	end
 end

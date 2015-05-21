@@ -6,39 +6,39 @@ task :default => :migrate
 
 desc "Run Migrations"
 task :migrate do
-	ActiveRecord::Migrator.migrate('db/migrate', ENV["VERSION"] ? ENV["VERSION"].to_i : nil)
+  ActiveRecord::Migrator.migrate('db/migrate', ENV["VERSION"] ? ENV["VERSION"].to_i : nil)
 end
 
 desc "Create a migration file"
 task :generate_migration do
-	if ENV["NAME"].nil?
-		puts "You provide a name".yellow
-		next
-	end
+  if ENV["NAME"].nil?
+    puts "You provide a name".yellow
+    next
+  end
 
-	migration_class_name = ENV["NAME"].camelize
-	valid_file = true
-	Dir["db/migrate/*"].each do |file|
-		# error if the class name already exists
-		file_name = file.split('/').last.split('.').first
-		file_class_name = file_name.gsub(/(^\d*_)(.*)/,'\2').camelize
-		if file_class_name == migration_class_name
-			puts "File with this class name #{migration_class_name} already exists".yellow
-			valid_file = false
-			next
-		end
-	end
+  migration_class_name = ENV["NAME"].camelize
+  valid_file = true
+  Dir["db/migrate/*"].each do |file|
+    # error if the class name already exists
+    file_name = file.split('/').last.split('.').first
+    file_class_name = file_name.gsub(/(^\d*_)(.*)/,'\2').camelize
+    if file_class_name == migration_class_name
+      puts "File with this class name #{migration_class_name} already exists".yellow
+      valid_file = false
+      next
+    end
+  end
 	
-	if valid_file
-		timestamp = Time.now.strftime('%Y%m%d%H%M%S')
-		new_migration_name = "#{timestamp}_#{ENV["NAME"]}.rb"
-		File.open("db/migrate/#{new_migration_name}","w") do |f|
-			f.write("require_relative "+"'../../environment.rb'\n")
-			f.write("class #{migration_class_name} < ActiveRecord::Base\n")
-			f.write("\tdef up\n\tend\n\tdef down\n\tend\n")
-			f.write("end")
-		end
+  if valid_file
+    timestamp = Time.now.strftime('%Y%m%d%H%M%S')
+    new_migration_name = "#{timestamp}_#{ENV["NAME"]}.rb"
+    File.open("db/migrate/#{new_migration_name}","w") do |f|
+      f.write("require_relative "+"'../../environment.rb'\n")
+      f.write("class #{migration_class_name} < ActiveRecord::Base\n")
+      f.write("\tdef up\n\tend\n\tdef down\n\tend\n")
+      f.write("end")
+    end
 
-		puts "created file db/migrate/#{ENV["NAME"]}.rb".yellow
-	end
+    puts "created file db/migrate/#{ENV["NAME"]}.rb".yellow
+  end
 end

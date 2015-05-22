@@ -12,7 +12,7 @@ gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB8
 
 Then you should hopefully be able to do the rest of the stuff needed. 
 
-# After you install ruby, you will need to run the `bundle` command. This is how you install the external libraries for the project that we will be using.
+After you install ruby, you will need to run the `bundle` command. This is how you install the external libraries for the project that we will be using.
 ```
 $ cd server
 $ bundle install

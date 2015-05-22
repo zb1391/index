@@ -1,7 +1,6 @@
 require 'yaml'
 require 'active_record'
 require 'active_support/all'
-# require 'pg'
 require 'sqlite3'
 require 'logger'
 require 'colorize'

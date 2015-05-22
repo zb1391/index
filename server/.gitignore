@@ -1,2 +1,5 @@
 .env
-db/database.yml
+indextest
+indextest-journal
+mytestdb
+mytestdb-journal

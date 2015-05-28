@@ -22,6 +22,7 @@ class ClientServer
   def create_client_thread(client)
     puts 'CONNECTED'.green
     client_server_thread = ClientServerThread.new(client) 
+    client_server_thread.get_client_data
     client.close
   end
 end

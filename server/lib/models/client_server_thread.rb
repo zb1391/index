@@ -5,6 +5,16 @@ class ClientServerThread
     @state = states[:verify]
   end
 
+  def get_client_data
+    loop do
+      case @state
+        when states[:verify]
+          # do stuff
+        else
+          return
+      end
+    end
+  end
   private
 
   def states

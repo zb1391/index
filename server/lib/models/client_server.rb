@@ -10,8 +10,10 @@ class ClientServer
   def listen_for_clients
     @is_listening = true
     loop do
+      puts 'trying to listen'
       Thread.start(windows_server.accept) do |client|
-        create_client_thread
+        puts 'found a connection'
+        create_client_thread(client)
       end
     end
     @is_listening = false
@@ -22,7 +24,8 @@ class ClientServer
   def create_client_thread(client)
     puts 'CONNECTED'.green
     client_server_thread = ClientServerThread.new(client) 
-    client_server_thread.get_client_data
+    client_server_thread.client_loop
+    puts 'CLOSED'.red
     client.close
   end
 end

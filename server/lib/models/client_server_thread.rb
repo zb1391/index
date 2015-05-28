@@ -1,4 +1,5 @@
 class ClientServerThread
+
   attr_reader :state, :client, :message
   
   def initialize(client)
@@ -6,17 +7,18 @@ class ClientServerThread
     @state = states[:verify]
   end
 
-  def parse_message
+  def get_client_data
     msg = @client.gets
-    @message = eval(msg)
+    @message = eval(msg) 
   end
 
-  def get_client_data
+  def client_loop
     loop do
-      parse_message
+      get_client_data
       case @state
         when states[:verify]
           # do stuff
+          puts "#{@message}".yellow
         else
           return
       end

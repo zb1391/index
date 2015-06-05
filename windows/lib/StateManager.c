@@ -53,3 +53,13 @@ char *getResponse()
 
   return response;
 }
+
+char checkValidUsername(char *username){
+  /* invalid is NULL or empty string*/
+  char isValid = (username == NULL || strlen(username) == 0) ? 0 : 1;
+  if(!isValid)
+  {
+    printf("Username can't be blank\n");
+  }
+  return isValid;
+}

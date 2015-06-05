@@ -28,6 +28,30 @@ START_TEST(print_question)
 }
 END_TEST
 
+START_TEST(check_valid_username_with_empty_string)
+{
+  char response = '\0';
+  char isValid = checkValidUsername(&response);
+  ck_assert(isValid == 0);
+}
+END_TEST
+
+START_TEST(check_valid_username_with_NULL_string)
+{
+  char *response = NULL;
+  char isValid = checkValidUsername(response);
+  ck_assert(isValid == 0);
+}
+END_TEST
+
+START_TEST(check_valid_username_with_valid_string)
+{
+  char username[10] = "zacbrown";
+  char isValid = checkValidUsername(username);
+  ck_assert(isValid == 1);
+}
+END_TEST
+
 // create a suite to run the tests
 Suite *first_suite(void)
 {
@@ -41,6 +65,9 @@ Suite *first_suite(void)
 
   tcase_add_test(tc_core, ask_get_username);
   tcase_add_test(tc_core, print_question);
+  tcase_add_test(tc_core, check_valid_username_with_empty_string);
+  tcase_add_test(tc_core, check_valid_username_with_NULL_string);
+  tcase_add_test(tc_core, check_valid_username_with_valid_string);
   suite_add_tcase(s, tc_core);
 
   return s;

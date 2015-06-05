@@ -10,6 +10,7 @@ int main(int argc, char **argv)
 	UserCredentials *userCredentials;
 	stateType state;
 	char *question, *response;
+	char is_valid;
 
 	/* first state always GetUsername */
 	state = GetUsername;
@@ -22,7 +23,8 @@ int main(int argc, char **argv)
 		{
 			askQuestion(&question);
 			response = getResponse();
-			state = Logging; /* TODO: change to next state (GetPassword)*/
+			is_valid = checkValidUsername(response);
+			state = Logging;
 		}
 
 		free(response);

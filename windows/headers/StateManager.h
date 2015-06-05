@@ -25,4 +25,6 @@ void askQuestion(char **question);
 // get the user input
 char *getResponse();
 
+// check to make sure the username entered is not empty or null
+char checkValidUsername(char *username);
 #endif

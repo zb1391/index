@@ -16,8 +16,10 @@ typedef struct user_credentials_t{
   char colorType[20];
 }UserCredentials;
 
+UserCredentials *newUserCredentials();
+
 // create a UserCredetntials struct
-UserCredentials *createUserCredentials(char *name, char *pw, char *color);
+UserCredentials *createFullUserCredentials(char *name, char *pw, char *color);
 
 // free a UserCredentials struct
 void destroyUserCredentials(UserCredentials **userCredentials);

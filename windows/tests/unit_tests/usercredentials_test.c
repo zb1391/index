@@ -4,13 +4,13 @@
 #include <check.h>
 
 /* Test that we can create user credentials struct */
-START_TEST (create_user_credentials)
+START_TEST (create_full_user_credentials)
 {
   char username[20]= "test_user";
   char password[20]= "password";
   char colorType[20] = "red";
 
-  UserCredentials *credentials = createUserCredentials(username, password, colorType);
+  UserCredentials *credentials = createFullUserCredentials(username, password, colorType);
 
   ck_assert_str_eq(username, credentials->username);
   ck_assert_str_eq(password, credentials->password);
@@ -24,7 +24,7 @@ END_TEST
 START_TEST (delete_user_credentials)
 {
   // create a user credentials struct
-  UserCredentials *credentials = createUserCredentials("test", "test", "red");
+  UserCredentials *credentials = createFullUserCredentials("test", "test", "red");
 
   // delete it
   destroyUserCredentials(&credentials);
@@ -45,7 +45,7 @@ Suite *first_suite(void)
   // Core test case
   tc_core = tcase_create("Core");
 
-  tcase_add_test(tc_core, create_user_credentials);
+  tcase_add_test(tc_core, create_full_user_credentials);
   tcase_add_test(tc_core, delete_user_credentials);
   suite_add_tcase(s, tc_core);
 

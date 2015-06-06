@@ -5,7 +5,7 @@
 /* Test numCharsRequired returns right value */
 START_TEST (get_num_chars)
 {
-  UserCredentials *credentials = createUserCredentials("user",
+  UserCredentials *credentials = createFullUserCredentials("user",
                                              "test","red");
   int expected = 52;
   int results = numCharsRequired(credentials);
@@ -20,7 +20,7 @@ END_TEST
 START_TEST (serialize_user_credentials)
 {
   //create the credentials
-  UserCredentials *credentials = createUserCredentials("user",
+  UserCredentials *credentials = createFullUserCredentials("user",
                                                 "test", "red");
   char expected[100] = "{:username=>user,:password=>test,:color_type=>red}\n";
 

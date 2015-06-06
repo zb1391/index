@@ -1,6 +1,16 @@
 #include "../headers/UserCredentials.h"
 
-UserCredentials *createUserCredentials(char *username, char *password, char *colorType)
+UserCredentials *newUserCredentials()
+{
+
+  UserCredentials *credentials = (UserCredentials *)malloc(sizeof(UserCredentials));
+  credentials->username = NULL;
+  credentials->password = NULL;
+
+  return credentials;
+}
+
+UserCredentials *createFullUserCredentials(char *username, char *password, char *colorType)
 {
   // create space for a new struct
   UserCredentials *credentials = (UserCredentials *)malloc(sizeof(UserCredentials));
@@ -15,6 +25,16 @@ UserCredentials *createUserCredentials(char *username, char *password, char *col
 
   return credentials;
 }
+
+void setUsername(UserCredentials *userCredentials, char *username)
+{
+  //malloc space for the username on struct
+  userCredentials->username = (char *)malloc((sizeof(char)*strlen(username))+1);
+
+  //copy the data
+  strcpy(userCredentials->username, username);
+}
+
 
 void destroyUserCredentials(UserCredentials **userCredentials)
 {

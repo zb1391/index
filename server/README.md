@@ -1,6 +1,7 @@
 # RPI Server Side
 This is our server side application to the Index project. Its purpose is to act as a connector between clients and rpi's through a TCP server. It will also mainatin a database of usernames and passwords that will be used for authorization.
 
+
 # Getting Ruby set up
 The first thing you will need to do is make sure you have ruby installed on your computer. The best way of doing this is to follow the tutorial for RVM here. From what I understand RVM is a Ruby Version Management system and allows you to install and maintain different versions of ruby for different projects I like this tutorial: https://www.digitalocean.com/community/tutorials/how-to-install-ruby-on-rails-on-ubuntu-12-04-lts-precise-pangolin-with-rvm
 

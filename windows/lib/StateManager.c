@@ -8,6 +8,10 @@ char *getQuestion(stateType state)
       question = (char *)malloc(sizeof(char)*(strlen("Enter your username:")+1));
       sprintf(question,"%s", "Enter your username:");
       break;
+    case GetPassword:
+      question = (char *)malloc(sizeof(char)*(strlen("Enter your password:")+1));
+      sprintf(question, "%s", "Enter your password:");
+      break;
   }
   return question;
 }

@@ -16,6 +16,14 @@ START_TEST (ask_get_username)
 }
 END_TEST
 
+START_TEST(ask_get_password)
+{
+  stateType state = GetPassword;
+  char * question = getQuestion(state);
+  ck_assert_str_eq(question, "Enter your password:");
+}
+END_TEST
+
 START_TEST(print_question)
 {
   // get question
@@ -84,6 +92,7 @@ Suite *first_suite(void)
   tc_core = tcase_create("Core");
 
   tcase_add_test(tc_core, ask_get_username);
+  tcase_add_test(tc_core, ask_get_password);
   tcase_add_test(tc_core, print_question);
   tcase_add_test(tc_core, check_valid_username_with_empty_string);
   tcase_add_test(tc_core, check_valid_username_with_NULL_string);

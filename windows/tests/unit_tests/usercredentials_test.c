@@ -34,17 +34,19 @@ START_TEST (delete_user_credentials)
 }
 END_TEST
 
-START_TEST (send_user_credentials) 
-{
- char username[20] = "test_user";
- char password[20] = "password"; 
- checkValidUsername(username);
- sendUserCredentials(username, password);
- 
- StateManager *testmanager = ChangeState("VerifyCredentials");
- testmanager
-}
 
+START_TEST(set_username){
+  char username[10] = "user";
+
+  UserCredentials *credentials = newUserCredentials();
+
+  setUsername(credentials, username);
+
+  ck_assert_str_eq(credentials->username, username);
+
+
+}
+END_TEST
 
 // create a suite to run the tests
 Suite *first_suite(void)
@@ -59,6 +61,7 @@ Suite *first_suite(void)
 
   tcase_add_test(tc_core, create_full_user_credentials);
   tcase_add_test(tc_core, delete_user_credentials);
+  tcase_add_test(tc_core, set_username);
   suite_add_tcase(s, tc_core);
 
   return s;

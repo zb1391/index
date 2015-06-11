@@ -27,4 +27,7 @@ char *getResponse();
 
 // check to make sure the username entered is not empty or null
 char checkValidUsername(char *username);
+
+// sets the proper state based on if the should_change value (true or false)
+void setState(stateType *state, char should_change);
 #endif

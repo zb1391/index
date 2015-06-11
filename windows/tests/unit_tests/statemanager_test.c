@@ -16,6 +16,14 @@ START_TEST (ask_get_username)
 }
 END_TEST
 
+START_TEST(ask_get_password)
+{
+  stateType state = GetPassword;
+  char * question = getQuestion(state);
+  ck_assert_str_eq(question, "Enter your password:");
+}
+END_TEST
+
 START_TEST(print_question)
 {
   // get question
@@ -52,6 +60,26 @@ START_TEST(check_valid_username_with_valid_string)
 }
 END_TEST
 
+START_TEST(setState_does_not_change_when_shouldChange_is_false)
+{
+  stateType state = GetUsername;
+  setState(&state, 0);
+
+  ck_assert(state == GetUsername);
+
+}
+END_TEST
+
+
+START_TEST(setState_GetUsername_changes_to_GetPassword)
+{
+  stateType state = GetUsername;
+  setState(&state, 1);
+
+  ck_assert(state == GetPassword);
+}
+END_TEST
+
 // create a suite to run the tests
 Suite *first_suite(void)
 {
@@ -64,10 +92,13 @@ Suite *first_suite(void)
   tc_core = tcase_create("Core");
 
   tcase_add_test(tc_core, ask_get_username);
+  tcase_add_test(tc_core, ask_get_password);
   tcase_add_test(tc_core, print_question);
   tcase_add_test(tc_core, check_valid_username_with_empty_string);
   tcase_add_test(tc_core, check_valid_username_with_NULL_string);
   tcase_add_test(tc_core, check_valid_username_with_valid_string);
+  tcase_add_test(tc_core, setState_does_not_change_when_shouldChange_is_false);
+  tcase_add_test(tc_core, setState_GetUsername_changes_to_GetPassword);
   suite_add_tcase(s, tc_core);
 
   return s;

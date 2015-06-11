@@ -24,7 +24,7 @@ int main(int argc, char **argv)
 			askQuestion(&question);
 			response = getResponse();
 			is_valid = checkValidUsername(response);
-			state = Logging;
+			setState(&state, is_valid);
 		}
 
 		free(response);

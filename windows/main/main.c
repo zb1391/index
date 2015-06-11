@@ -26,7 +26,13 @@ int main(int argc, char **argv)
 			is_valid = checkValidUsername(response);
 			setState(&state, is_valid);
 		}
-
+		else if(state == GetPassword)
+		{
+			askQuestion(&question);
+			response = getResponse();
+			is_valid = checkValidUsername(response);
+			setState(&state, is_valid);
+		}
 		free(response);
 	}
 	return 0;

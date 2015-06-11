@@ -54,7 +54,8 @@ char *getResponse()
   return response;
 }
 
-char checkValidUsername(char *username){
+char checkValidUsername(char *username)
+{
   /* invalid is NULL or empty string*/
   char isValid = (username == NULL || strlen(username) == 0) ? 0 : 1;
   if(!isValid)
@@ -62,4 +63,17 @@ char checkValidUsername(char *username){
     printf("Username can't be blank\n");
   }
   return isValid;
+}
+
+void setState(stateType *state, char shouldChange)
+{
+  if(shouldChange <= 0)
+    return;
+
+  switch(*(state)){
+    case GetUsername:
+      *(state) = GetPassword;
+      break;
+  }
+
 }

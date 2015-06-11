@@ -34,6 +34,18 @@ START_TEST (delete_user_credentials)
 }
 END_TEST
 
+START_TEST (send_user_credentials) 
+{
+ char username[20] = "test_user";
+ char password[20] = "password"; 
+ checkValidUsername(username);
+ sendUserCredentials(username, password);
+ 
+ StateManager *testmanager = ChangeState("VerifyCredentials");
+ testmanager
+}
+
+
 // create a suite to run the tests
 Suite *first_suite(void)
 {

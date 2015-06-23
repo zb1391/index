@@ -80,6 +80,18 @@ START_TEST(setState_GetUsername_changes_to_GetPassword)
 }
 END_TEST
 
+START_TEST(setState_GetColorType_ask_color)
+{
+  stateType state = GetColorType;
+
+  char *question = getQuestion(state);
+
+  ck_assert_str_eq(question, "Enter a Color")
+  ck_assert(state == GetColorType);
+}
+END_TEST
+
+
 // create a suite to run the tests
 Suite *first_suite(void)
 {

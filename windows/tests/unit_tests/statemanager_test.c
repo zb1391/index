@@ -80,6 +80,18 @@ START_TEST(setState_GetUsername_changes_to_GetPassword)
 }
 END_TEST
 
+START_TEST(setState_GetPassword_changes_to_GetColorType)
+{
+  stateType state = GetPassword;
+  setState(&state, 1);
+  char *response = getResponse(state);
+  if (response) {
+    state = GetColorType;
+    setState(&state, 1);
+  }
+}
+END_TEST
+
 START_TEST(setState_GetColorType_ask_color)
 {
   stateType state = GetColorType;

@@ -28,4 +28,6 @@ void destroyUserCredentials(UserCredentials **userCredentials);
 // set the username
 void setUserName(UserCredentials *userCredentials, char *username);
 
+
+
 #endif

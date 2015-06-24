@@ -84,22 +84,19 @@ END_TEST
 START_TEST(checkState_GetPassword_invalid_response)
 {
   stateType state = GetPassword;
-  char password[10] = NULL;
-  char isValid = checkValidUsername(password);
+  char *password[10] = NULL;
+  char isValid = checkValidInput(password);
   ck_assert(isValid == 0);
   ck_assert(state ==GetPassword);
 }
 END_TEST
 
-START_TEST(setState_GetPassword_changes_to_GetColorType)
+START_TEST(GetPassword_changes_to_GetColorType)
 {
   stateType state = GetPassword;
   setState(&state, 1);
   char *response = getResponse(state);
-  if (response) {
-    state = GetColorType;
-    setState(&state, 1);
-  }
+  //finish
 }
 END_TEST
 
@@ -134,7 +131,7 @@ Suite *first_suite(void)
   tcase_add_test(tc_core, check_valid_username_with_valid_string);
   tcase_add_test(tc_core, setState_does_not_change_when_shouldChange_is_false);
   tcase_add_test(tc_core, setState_GetUsername_changes_to_GetPassword);
-  tcase_add_test(tc_core, setState_GetPassword_changes_to_GetColorType);
+  tcase_add_test(tc_core, GetPassword_changes_to_GetColorType);
   tcase_add_test(tc_core, setState_GetColorType_ask_color);
   suite_add_tcase(s, tc_core);
 

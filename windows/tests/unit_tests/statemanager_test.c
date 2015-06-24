@@ -84,7 +84,7 @@ END_TEST
 START_TEST(checkState_GetPassword_invalid_response)
 {
   stateType state = GetPassword;
-  char *password[10] = NULL;
+  char *password = NULL;
   char isValid = checkValidInput(password);
   ck_assert(isValid == 0);
   ck_assert(state ==GetPassword);

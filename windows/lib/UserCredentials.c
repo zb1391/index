@@ -30,7 +30,7 @@ void setUsername(UserCredentials *userCredentials, char *username)
 {
   //malloc space for the username on struct
   userCredentials->username = (char *)malloc((sizeof(char)*strlen(username))+1);
-
+  
   //copy the data
   strcpy(userCredentials->username, username);
 }

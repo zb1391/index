@@ -12,6 +12,9 @@ int main(int argc, char **argv)
 	char *question, *response;
 	char is_valid;
 
+	/* initialize the UserCredentials struct */
+	userCredentials = newUserCredentials();
+
 	/* first state always GetUsername */
 	state = GetUsername;
 
@@ -24,6 +27,10 @@ int main(int argc, char **argv)
 			askQuestion(&question);
 			response = getResponse();
 			is_valid = checkValidUsername(response);
+			if(is_valid > 0)
+			{
+				setUsername(userCredentials, response);
+			}
 			setState(&state, is_valid);
 		}
 		else if(state == GetPassword)

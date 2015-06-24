@@ -25,8 +25,8 @@ void askQuestion(char **question);
 // get the user input
 char *getResponse();
 
-// check to make sure the username entered is not empty or null
-char checkValidUsername(char *username);
+// check to make sure the username/password entered is not empty or null
+char checkValidInput(char *username);
 
 // sets the proper state based on if the should_change value (true or false)
 void setState(stateType *state, char should_change);

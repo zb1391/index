@@ -26,7 +26,7 @@ int main(int argc, char **argv)
 		{
 			askQuestion(&question);
 			response = getResponse();
-			is_valid = checkValidUsername(response);
+			is_valid = checkValidInput(response);
 			if(is_valid > 0)
 			{
 				setUsername(userCredentials, response);
@@ -37,7 +37,7 @@ int main(int argc, char **argv)
 		{
 			askQuestion(&question);
 			response = getResponse();
-			is_valid = checkValidUsername(response);
+			is_valid = checkValidInput(response);
 			setState(&state, is_valid);
 		}
 		free(response);

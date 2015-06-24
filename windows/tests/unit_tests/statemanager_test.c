@@ -39,7 +39,7 @@ END_TEST
 START_TEST(check_valid_username_with_empty_string)
 {
   char response = '\0';
-  char isValid = checkValidUsername(&response);
+  char isValid = checkValidInput(&response);
   ck_assert(isValid == 0);
 }
 END_TEST
@@ -47,7 +47,7 @@ END_TEST
 START_TEST(check_valid_username_with_NULL_string)
 {
   char *response = NULL;
-  char isValid = checkValidUsername(response);
+  char isValid = checkValidInput(response);
   ck_assert(isValid == 0);
 }
 END_TEST
@@ -55,7 +55,7 @@ END_TEST
 START_TEST(check_valid_username_with_valid_string)
 {
   char username[10] = "zacbrown";
-  char isValid = checkValidUsername(username);
+  char isValid = checkValidInput(username);
   ck_assert(isValid == 1);
 }
 END_TEST
@@ -98,7 +98,7 @@ START_TEST(setState_GetColorType_ask_color)
 
   char *question = getQuestion(state);
 
-  ck_assert_str_eq(question, "Enter a Color")
+  ck_assert_str_eq(question, "Enter a Color");
   ck_assert(state == GetColorType);
 }
 END_TEST

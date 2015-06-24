@@ -12,6 +12,9 @@ char *getQuestion(stateType state)
       question = (char *)malloc(sizeof(char)*(strlen("Enter your password:")+1));
       sprintf(question, "%s", "Enter your password:");
       break;
+	case GetColorType:
+	  question = (char *)malloc(sizeof(char)*(strlen("Enter your color:")+1));
+	  sprintf(question, "%s", "Enter your color:");
   }
   return question;
 }
